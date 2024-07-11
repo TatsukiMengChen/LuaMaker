@@ -1,0 +1,991 @@
+[
+  {
+    "name": "世界事件",
+    "type": "World",
+    "events": [
+      [
+        "Backpack.ItemChange",
+        "容器内道具变化",
+        [
+          ["blockid", "方块类型"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Backpack.ItemPutIn",
+        "容器内有道具放入",
+        [
+          ["blockid", "方块类型"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Backpack.ItemTakeOut",
+        "容器内有道具取出",
+        [
+          ["blockid", "方块类型"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "游戏逻辑",
+    "type": "Game",
+    "events": [
+      ["Game.Hour", "世界小时时间变化", [["hour", "游戏小时时间"]]],
+      [
+        "Game.RunTime",
+        "世界Tick变化",
+        [
+          ["second", "游戏分钟"],
+          ["ticks", "游戏秒"]
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "玩家事件",
+    "type": "Player",
+    "events": [
+      [
+        "Game.AnyPlayer.Defeat",
+        "任一玩家失败",
+        [
+          ["eventobjid", "事件玩家"],
+          ["shortix", "快捷栏索引"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Game.AnyPlayer.EnterGame",
+        "任一玩家进入",
+        [
+          ["eventobjid", "事件玩家"],
+          ["shortix", "快捷栏索引"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Game.AnyPlayer.LeaveGame",
+        "任一玩家离开",
+        [
+          ["eventobjid", "事件玩家"],
+          ["shortix", "快捷栏索引"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Game.AnyPlayer.Victory",
+        "任一玩家胜利",
+        [
+          ["eventobjid", "事件玩家"],
+          ["shortix", "快捷栏索引"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Player.AddBuff",
+        "玩家获得状态效果",
+        [
+          ["eventobjid", "事件玩家"],
+          ["buffid", "状态ID"],
+          ["bufflvl", "状态等级"]
+        ]
+      ],
+      [
+        "Player.AddItem",
+        "玩家获得道具",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"]
+        ]
+      ],
+      [
+        "Player.AreaIn",
+        "玩家进入区域",
+        [
+          ["eventobjid", "事件玩家"],
+          ["areaid", "区域ID"]
+        ]
+      ],
+      [
+        "Player.AreaOut",
+        "玩家离开区域",
+        [
+          ["eventobjid", "事件玩家"],
+          ["areaid", "区域ID"]
+        ]
+      ],
+      [
+        "Player.AttackHit",
+        "玩家击中目标",
+        [
+          ["eventobjid", "事件玩家"],
+          ["toobjid", "事件目标对象"],
+          ["targetactorid", "被攻击的对象"]
+        ]
+      ],
+      [
+        "Player.Attack",
+        "玩家攻击",
+        [
+          ["eventobjid", "玩家攻击"],
+          ["shortix", null],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Player.BackPackChange",
+        "背包栏变化",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["itemix", "道具所在格子索引"]
+        ]
+      ],
+      [
+        "Player.BeHurt",
+        "玩家受到伤害",
+        [
+          ["eventobjid", "事件玩家"],
+          ["hurtlv", "伤害值"]
+        ]
+      ],
+      [
+        "Player.ChangeAttr",
+        "玩家属性变化",
+        [
+          ["eventobjid", "事件玩家"],
+          ["shortix", "快捷栏索引"],
+          ["playerattr", "改变的属性"],
+          ["playerattrval", "改变的值"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Player.ClickActor",
+        "点击生物",
+        [
+          ["eventobjid", "事件玩家"],
+          ["toobjid", "事件目标对象"],
+          ["targetactorid", "被点击击的对象"]
+        ]
+      ],
+      [
+        "Player.ClickBlock",
+        "点击方块",
+        [
+          ["eventobjid", "事件玩家"],
+          ["blockid", "点击的方块类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Player.Collide",
+        "玩家跟玩家/生物碰撞",
+        [
+          ["eventobjid", "事件玩家"],
+          ["toobjid", "目标对象"]
+        ]
+      ],
+      [
+        "Player.ConsumeItem",
+        "玩家消耗道具",
+        [
+          ["eventobjid", "玩家消耗道具"],
+          ["itemid", null],
+          ["itemnum", null]
+        ]
+      ],
+      [
+        "Player.DamageActor",
+        "玩家造成伤害",
+        [
+          ["eventobjid", "事件玩家"],
+          ["toobjid", "事件目标对象"],
+          ["targetactorid", "目标玩家"],
+          ["hurtlv", "伤害值"]
+        ]
+      ],
+      [
+        "Player.DefeatActor",
+        "玩家击败目标",
+        [
+          ["eventobjid", "事件玩家"],
+          ["toobjid", "事件目标对象"],
+          ["targetactorid", "被攻击的对象"]
+        ]
+      ],
+      [
+        "Player.Die",
+        "玩家死亡",
+        [
+          ["eventobjid", "事件玩家"],
+          ["shortix", "快捷栏索引"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Player.DiscardItem",
+        "丢弃道具",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["toobjid", "掉落物objid"]
+        ]
+      ],
+      [
+        "Player.DismountActor",
+        "玩家骑乘下",
+        [
+          ["eventobjid", "事件玩家"],
+          ["toobjid", "事件目标对象"],
+          ["targetactorid", "被攻击的对象"]
+        ]
+      ],
+      [
+        "Player.EquipChange",
+        "装备栏变化",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["itemix", "道具所在格子索引"]
+        ]
+      ],
+      [
+        "Player.EquipOff",
+        "脱下装备",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["itemix", "道具所在格子索引"]
+        ]
+      ],
+      [
+        "Player.EquipOn",
+        "穿上装备",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["itemix", "道具所在格子索引"]
+        ]
+      ],
+      [
+        "Player.InputContent",
+        "输入字符串",
+        [
+          ["eventobjid", "事件玩家"],
+          ["content", "事件中的字符串"]
+        ]
+      ],
+      [
+        "Player.InputKeyDown",
+        "玩家按下按键",
+        [
+          ["eventobjid", "事件玩家"],
+          ["vkey", "按下的键值"]
+        ]
+      ],
+      [
+        "Player.InputKeyOnPress",
+        "玩家长按按键",
+        [
+          ["eventobjid", "事件玩家"],
+          ["vkey", "按下的键值"]
+        ]
+      ],
+      [
+        "Player.InputKeyUp",
+        "玩家松开按键",
+        [
+          ["eventobjid", "事件玩家"],
+          ["vkey", "按下的键值"]
+        ]
+      ],
+      ["Player.LevelModelUpgrade", "玩家等级发生改变", [["eventobjid", "事件玩家"]]],
+      [
+        "Player.MotionStateChange",
+        "玩家行为状态变更",
+        [
+          ["eventobjid", "事件玩家"],
+          ["playermotion", "行为状态枚举"]
+        ]
+      ],
+      [
+        "Player.MountActor",
+        "玩家骑乘上",
+        [
+          ["eventobjid", "事件玩家"],
+          ["toobjid", "事件目标对象"],
+          ["targetactorid", "被攻击的对象"]
+        ]
+      ],
+      [
+        "Player.MoveOneBlockSize",
+        "玩家移动(移动一格)",
+        [
+          ["eventobjid", "事件玩家"],
+          ["shortix", null],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Player.NewInputContent",
+        "从聊天框输入",
+        [
+          ["eventobjid", "事件玩家"],
+          ["content", "事件中的字符串"]
+        ]
+      ],
+      [
+        "Player.PickUpItem",
+        "玩家拾取",
+        [
+          ["eventobjid", "事件玩家"],
+          ["toobjid", "掉落物objid"],
+          ["itemid", "道具类型ID"],
+          ["itemnum", "道具数量"]
+        ]
+      ],
+      [
+        "Player.PlayAction",
+        "玩家使用表情动作",
+        [
+          ["eventobjid", "事件玩家"],
+          ["act", "动作ID"]
+        ]
+      ],
+      [
+        "Player.RemoveBuff",
+        "玩家失去指定状态效果",
+        [
+          ["eventobjid", "事件玩家"],
+          ["buffid", "状态ID"],
+          ["bufflvl", "状态等级"]
+        ]
+      ],
+      [
+        "Player.Revive",
+        "玩家复活",
+        [
+          ["eventobjid", "事件玩家"],
+          ["shortix", "快捷栏索引"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Player.SelectShortcut",
+        "快捷栏选择",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"]
+        ]
+      ],
+      [
+        "Player.ShortcutChange",
+        "快捷栏变化",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["itemix", "道具所在格子索引"]
+        ]
+      ],
+      [
+        "Player.UseGiftPack",
+        "局部此类包裹道具被使用[]",
+        [
+          ["eventobjid", "事件对象"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"]
+        ]
+      ],
+      [
+        "Player.UseItem",
+        "玩家使用道具",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["itemix", "道具所在格子索引"]
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "生物事件",
+    "type": "Actor",
+    "events": [
+      [
+        "Actor.AddBuff",
+        "生物获得状态效果",
+        [
+          ["eventobjid", "事件生物"],
+          ["actorid", "事件生物类型"],
+          ["buffid", "状态ID"],
+          ["bufflvl", "状态等级"]
+        ]
+      ],
+      [
+        "Actor.AreaIn",
+        "生物进入区域",
+        [
+          ["eventobjid", "事件生物"],
+          ["areaid", "区域ID"]
+        ]
+      ],
+      [
+        "Actor.AreaOut",
+        "生物离开区域",
+        [
+          ["eventobjid", "事件生物"],
+          ["areaid", "区域ID"]
+        ]
+      ],
+      [
+        "Actor.AttackHit",
+        "攻击命中",
+        [
+          ["eventobjid", "事件生物"],
+          ["toobjid", "攻击对象"],
+          ["actorid", "事件生物类型"],
+          ["targetactorid", "攻击对象生物类型"]
+        ]
+      ],
+      [
+        "Actor.Attack",
+        "攻击",
+        [
+          ["eventobjid", "事件生物"],
+          ["toobjid", "攻击对象"],
+          ["actorid", "事件生物类型"],
+          ["targetactorid", "攻击对象生物类型"]
+        ]
+      ],
+      [
+        "Actor.BeHurt",
+        "受到伤害",
+        [
+          ["eventobjid", "事件生物"],
+          ["toobjid", "攻击对象"],
+          ["hurtlv", "伤害值"],
+          ["actorid", "事件生物类型"]
+        ]
+      ],
+      [
+        "Actor.Beat",
+        "生物击败玩家/生物",
+        [
+          ["eventobjid", "事件生物"],
+          ["toobjid", "攻击对象"],
+          ["actorid", "事件生物类型"],
+          ["targetactorid", "攻击对象生物类型"]
+        ]
+      ],
+      [
+        "Actor.ChangeAttr",
+        "属性变化",
+        [
+          ["eventobjid", "事件生物"],
+          ["actorid", "事件生物类型"],
+          ["actorattr", "属性枚举值"],
+          ["actorattrval", "改变的值"]
+        ]
+      ],
+      [
+        "Actor.ChangeMotion",
+        "生物行为状态变更到[n]",
+        [
+          ["eventobjid", "事件生物"],
+          ["areaid", "事件生物类型"],
+          ["actormotion", "动作枚举值"]
+        ]
+      ],
+      [
+        "Actor.Collide",
+        "碰撞到玩家/生物",
+        [
+          ["eventobjid", "事件生物"],
+          ["toobjid", "攻击对象"],
+          ["actorid", "事件生物类型"],
+          ["targetactorid", "攻击对象生物类型"]
+        ]
+      ],
+      [
+        "Actor.Create",
+        "被创建",
+        [
+          ["eventobjid", "事件生物"],
+          ["actorid", "事件生物类型"]
+        ]
+      ],
+      [
+        "Actor.Damage",
+        "造成伤害",
+        [
+          ["eventobjid", "事件生物"],
+          ["toobjid", "攻击对象"],
+          ["hurtlv", "伤害值"],
+          ["actorid", "事件生物类型"],
+          ["targetactorid", "攻击对象生物类型"]
+        ]
+      ],
+      [
+        "Actor.Die",
+        "死亡",
+        [
+          ["eventobjid", "事件生物"],
+          ["toobjid", "攻击对象"],
+          ["actorid", "事件生物类型"]
+        ]
+      ],
+      [
+        "Actor.Projectile.Hit",
+        "投掷物击中",
+        [
+          ["eventobjid", "事件投掷物对象"],
+          ["toobjid", "被击中的对象"],
+          ["itemid", "道具类型"],
+          ["targetactorid", "被击中的生物类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Actor.RemoveBuff",
+        "生物失去状态效果",
+        [
+          ["eventobjid", "事件生物"],
+          ["actorid", "事件生物类型"],
+          ["buffid", "状态ID"],
+          ["bufflvl", "状态等级"]
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "方块事件",
+    "type": "Block",
+    "events": [
+      [
+        "Block.Add",
+        "被创建",
+        [
+          ["blockid", "方块类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Block.DestroyBy",
+        "局部此类方块被破坏时",
+        [
+          ["eventobjid", "事件玩家"],
+          ["blockid", "方块类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Block.Dig.Begin",
+        "任意方块被挖掘时",
+        [
+          ["eventobjid", "事件玩家"],
+          ["blockid", "方块类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Block.Dig.Cancel",
+        "任意方块被挖掘取消",
+        [
+          ["eventobjid", "事件玩家"],
+          ["blockid", "方块类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Block.Dig.End",
+        "方块被挖",
+        [
+          ["eventobjid", "事件玩家"],
+          ["blockid", "方块类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Block.Remove",
+        "方块移除",
+        [
+          ["blockid", "方块类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Block.Trigger",
+        "活跃/通电",
+        [
+          ["eventobjid", "事件玩家"],
+          ["blockid", "方块类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "道具事件",
+    "type": "Item",
+    "events": [
+      [
+        "DropItem.AreaIn",
+        "掉落物进入区域",
+        [
+          ["eventobjid", "事件掉落物"],
+          ["areaid", "区域ID"],
+          ["itemid", "道具类型"]
+        ]
+      ],
+      [
+        "DropItem.AreaOut",
+        "掉落物离开区域",
+        [
+          ["eventobjid", "事件掉落物"],
+          ["areaid", "区域ID"],
+          ["itemid", "道具类型"]
+        ]
+      ],
+      [
+        "Item.Create",
+        "掉落物被创建",
+        [
+          ["eventobjid", "事件掉落物"],
+          ["itemid", "道具类型"],
+          ["defaultvalue", "掉落方式"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Item.Destroy",
+        "局部此类装备被破坏时",
+        [
+          ["eventobjid", "事件对象"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"]
+        ]
+      ],
+      [
+        "Item.Disappear",
+        "掉落物消失",
+        [
+          ["eventobjid", "事件掉落物"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Item.Pickup",
+        "掉落物被拾取",
+        [
+          ["eventobjid", "事件玩家"],
+          ["toobjid", "被拾取的对象"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Item.expend",
+        "局部此类食物道具被消耗",
+        [
+          ["eventobjid", "事件对象"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"]
+        ]
+      ],
+      [
+        "Missile.AreaIn",
+        "投掷物进入区域",
+        [
+          ["eventobjid", "事件投掷物"],
+          ["areaid", "区域ID"],
+          ["itemid", "道具类型"]
+        ]
+      ],
+      [
+        "Missile.AreaOut",
+        "投掷物离开区域",
+        [
+          ["eventobjid", "事件投掷物"],
+          ["areaid", "区域ID"],
+          ["itemid", "道具类型"]
+        ]
+      ],
+      [
+        "Missile.Create",
+        "投掷物被创建",
+        [
+          ["eventobjid", "事件玩家"],
+          ["itemid", "道具类型"],
+          ["toobjid", "事件投掷物"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "特效事件",
+    "type": "Particle",
+    "events": [
+      [
+        "Particle.Item.OnCreate",
+        "当特效在掉落物上创建",
+        [
+          ["eventobjid", "事件掉落物"],
+          ["effectid", "特效类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Particle.Mob.OnCreate",
+        "任意生物身上特效被创建",
+        [
+          ["eventobjid", "事件生物"],
+          ["effectid", "特效类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Particle.Player.OnCreate",
+        "任意玩家身上特效被创建",
+        [
+          ["eventobjid", "事件玩家"],
+          ["effectid", "特效类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Particle.Pos.OnCreate",
+        "任意位置上特效被创建",
+        [
+          ["effectid", "特效类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Particle.Projectile.OnCreate",
+        "任意投掷物特效被创建",
+        [
+          ["eventobjid", "事件投掷物"],
+          ["effectid", "特效类型"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "UI事件",
+    "type": "UI",
+    "events": [
+      [
+        "UI.Button.Click",
+        "按钮点击",
+        [
+          ["eventobjid", "事件玩家"],
+          ["CustomUI", "事件UI"],
+          ["uielement", "事件元件"]
+        ]
+      ],
+      [
+        "UI.Button.TouchBegin",
+        "按钮按下",
+        [
+          ["eventobjid", "事件玩家"],
+          ["CustomUI", "事件UI"],
+          ["uielement", null]
+        ]
+      ],
+      [
+        "UI.Hide",
+        "界面被关闭",
+        [
+          ["eventobjid", "事件玩家"],
+          ["CustomUI", "事件UI"]
+        ]
+      ],
+      [
+        "UI.LostFocus",
+        "自定义ui输入框失去焦点",
+        [
+          ["eventobjid", "事件玩家"],
+          ["CustomUI", "事件UI"],
+          ["uielement", "事件元件"],
+          ["content", "输入的内容"]
+        ]
+      ],
+      [
+        "UI.Show",
+        "界面被打开",
+        [
+          ["eventobjid", "事件玩家"],
+          ["CustomUI", "事件UI"]
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "其他事件",
+    "type": "*",
+    "events": [
+      ["BluePrint.BuildBegin", "蓝图开始创建", [["areaid", "区域ID"]]],
+      [
+        "Craft.end",
+        "任意配方合成完成",
+        [
+          ["eventobjid", "事件对象"],
+          ["craftid", "配方ID"],
+          ["itemid", "道具类型"],
+          ["itemnum", "道具数量"]
+        ]
+      ],
+      [
+        "Developer.BuyItem",
+        "任意玩家购买商品道具",
+        [
+          ["eventobjid", "事件对象"],
+          ["itemid", "道具类型"]
+        ]
+      ],
+      [
+        "Furnace.begin",
+        "任意熔炼开始",
+        [
+          ["furanceid", "熔炼ID"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      [
+        "Furnace.end",
+        "任意熔炼结束",
+        [
+          ["furanceid", "熔炼ID"],
+          ["x", "X 坐标"],
+          ["y", "Y 坐标"],
+          ["z", "Z 坐标"]
+        ]
+      ],
+      ["MiNiVip_1", "购买迷你大会员1个月", [["eventobjid", "事件玩家"]]],
+      ["MiNiVip_3", "购买迷你大会员3个月", [["eventobjid", "事件玩家"]]],
+      [
+        "Plot.begin",
+        "任意剧情开始",
+        [
+          ["eventobjid", "事件对象"],
+          ["toobjid", "目标对象"],
+          ["plotid", "剧情类型"],
+          ["targetactorid", "目标生物类型"]
+        ]
+      ],
+      [
+        "Plot.end",
+        "任意剧情结束",
+        [
+          ["eventobjid", "事件对象"],
+          ["toobjid", "目标对象"],
+          ["plotid", "剧情类型"],
+          ["targetactorid", "目标生物类型"]
+        ]
+      ],
+      [
+        "QQMusic.PlayBegin",
+        "QQ音乐开始播放",
+        [
+          ["eventobjid", "事件玩家"],
+          ["qqMusicId", "音乐ID"]
+        ]
+      ],
+      [
+        "minitimer.change",
+        "指定计时器变化",
+        [
+          ["timerid", "计时器ID"],
+          ["timername", "计时器名称"],
+          ["timertime", "计时器时间"]
+        ]
+      ]
+    ]
+  }
+]
