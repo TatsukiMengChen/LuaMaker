@@ -1,0 +1,153 @@
+{
+      "kind": "category",
+      "name": "世界",
+      "categorystyle": "World",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "游戏",
+      "categorystyle": "Game",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "方块",
+      "categorystyle": "Block",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "状态",
+      "categorystyle": "Buff",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "实体",
+      "categorystyle": "Actor",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "玩家",
+      "categorystyle": "Player",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "生物",
+      "categorystyle": "Creature",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "区域",
+      "categorystyle": "Area",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "聊天",
+      "categorystyle": "Chat",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "组队",
+      "categorystyle": "Team",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "道具",
+      "categorystyle": "Item",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "背包",
+      "categorystyle": "Backpack",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "对象库",
+      "categorystyle": "ObjectLib",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "变量库",
+      "categorystyle": "VarLib",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "小地图",
+      "categorystyle": "Mapmark",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "出生点",
+      "categorystyle": "Spawnport",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "计时器",
+      "categorystyle": "MiniTimer",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "文字板",
+      "categorystyle": "Graphics",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "函数监听",
+      "categorystyle": "ListenParam",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "变量组",
+      "categorystyle": "ValueGroup",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "自定义UI",
+      "categorystyle": "Customui",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "容器",
+      "categorystyle": "WorldContainer",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "显示板管理",
+      "categorystyle": "DisPlayBoard",
+      "contents": []
+    },
+    {
+      "kind": "category",
+      "name": "云服数据存储",
+      "categorystyle": "database",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "setorderdatabykey"
+        },
+        {
+          "kind": "block",
+          "type": "removeorderdatabykey"
+        }
+      ]
+    }
