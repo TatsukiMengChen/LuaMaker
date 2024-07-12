@@ -8,38 +8,44 @@
 
 # LuaMaker
 
-**Portable visual script editor for creators.**
+Portable visual script editor for creators.
 
 # Introduce
 
-**LuaMaker is an innovative tool specially designed for MiniWorld developers. Based on the excellent open source project **[Boxy](https://github.com/cocotais/boxy), LuaMaker aims to enable developers to easily design and edit complex Lua scripts, thus making more exciting games.
+LuaMaker is an innovative tool specially designed for MiniWorld developers. Based on the excellent open source project [Boxy](https://github.com/cocotais/boxy), LuaMaker aims to enable developers to easily design and edit complex Lua scripts, thus making more exciting games.
 
 # Develop
 
-**This project is developed based on **[Boxy](https://github.com/cocotais/boxy), which is a pure web-side tool and managed by `yarn`.
+This project is developed based on [Boxy](https://github.com/cocotais/boxy), which is a pure web-side tool and managed by `yarn`.
 
 ```
 yarn install
+```
+```
 yarn dev
 ```
 
-**After entering the development mode, a local server will be started to run the project at port 1234 by default. The port will keep listening for changes of code, compile and perform hot reloading. If the project shows some problems after hot reloading, you can refresh the page.**
+After entering the development mode, a local server will be started to run the project at port 1234 by default. The port will keep listening for changes of code, compile and perform hot reloading. If the project shows some problems after hot reloading, you can refresh the page.
 
 ```
 yarn build
 ```
 
-**Projects in production status will be packaged into the **`./dist`. Before building, we recommend that you run the following instructions to review the code.
+Projects in production status will be packaged into the `./dist`. Before building, we recommend that you run the following instructions to review the code.
 
 ```
 yarn lint
+```
+```
 yarn style
+```
+```
 yarn format
 ```
 
-**For more information, you can read **[The Guidance of Boxy](https://www.yuque.com/zaona/boxy).
+For more information, you can read [The Guidance of Boxy](https://www.yuque.com/zaona/boxy).
 
 # Contribution
 
-**Welcome your contribution! Please kindly submit issue and pull request, and please run the above instructions to review the code before submit pull request.** ** **If you have localization requirements, please send an email to [shulin3712@163.com](mailto:shulin3712@163.com) and we will contact you as soon as possible.
+Welcome your contribution! Please kindly submit issue and pull request, and please run the above instructions to review the code before submit pull request.If you have localization requirements, please send an email to [shulin3712@163.com](mailto:shulin3712@163.com) and we will contact you as soon as possible.
 
