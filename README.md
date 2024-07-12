@@ -1,69 +1,55 @@
-# Boxy
+<p align="center">
+    <br>
+    <img width="100" src="https://cdn.nlark.com/yuque/0/2024/png/35402759/1720699360490-576ed677-8056-426d-ab06-f75b9519bf68.png" alt="Waddle2-logo"/>
+</p>
 
-Boxy 是 Google Blockly 的一个应用实例，
-对 Blockly 进行了较为完善的配置，
-你可以用它快速地进行 Blockly 开发。
+[![star](https://api.netlify.com/api/v1/badges/10ba9049-03f9-4ac1-a8de-1b3d066f83a1/deploy-status)](https://gitee.com/cocotais/waddle/stargazers)   ![Static Badge](https://img.shields.io/badge/Powered_By-Boxy-blue?labelColor=%23d1e0fd&color=%234062F6&link=https%3A%2F%2Fgitee.com%2Fcocotais%2Fboxy)
 
-# 安装
+# LuaMaker
 
-1. **环境检查： 确保你的电脑已经安装了最新版本的 Node.js。**
-   Boxy 是纯客户端 Web 应用，
-   仅使用 Node.js 进行自动化处理。
+为创作者打造的便携式可视化脚本编辑器
+<a name="Z4eMy"></a>
 
-2. **克隆仓库：将本仓库克隆到本地。** Gitee 和 Github 克隆分别如下：
+# 介绍
 
-   ```shell
-   git clone https://gitee.com/coco-central/boxy.git
-   ```
+LuaMaker是一款专为迷你世界开发者量身打造的创新性工具，基于优秀开源项目[Boxy](https://gitee.com/cocotais/boxy)开发，旨在使开发者能够轻松地设计和编辑复杂的Lua脚本，从而制作出更精彩的玩法
+<a name="jXSHA"></a>
 
-   ```shell
-   git clone https://github.com/coco-central/boxy.git
-   ```
+# 开发
 
-3. **环境配置：配置本地开发环境。**
+本项目基于[Boxy](https://gitee.com/cocotais/boxy)开发，为纯web端工具，使用`yarn`进行管理
 
-   ```shell
-   cd boxy
-   ```
+```shell
+yarn install
+```
 
-   ```shell
-   yarn install
-   ```
+```shell
+yarn dev
+```
 
-### 开发模式
+进入开发模式后，默认会在1234端口启动一个本地服务器运行项目。端口会持续监听代码变化，编译并进行热重载，若热重载后项目表现出一些异常，可刷新页面
 
-- 监听源码变化，编译并执行热重载。
+```shell
+yarn build
+```
 
-  ```shell
-  yarn dev
-  ```
+生产状态的项目会被打包至`./dist`目录下。在构建之前，我们建议您先运行以下指令审查代码
 
-### 生产模式
+```shell
+yarn lint
+```
 
-1. 构建并优化生成。
+```shell
+yarn style
+```
 
-   ```shell
-   yarn build
-   ```
+```shell
+yarn format
+```
 
-2. 预览构建。
+更多开发方法可查阅[Boxy手册](https://www.yuque.com/zaona/boxy)
+<a name="q8A2K"></a>
 
-   ```shell
-   yarn preview
-   ```
+# 贡献
 
-### 格式化
-
-- 请在 `commit` 前执行格式化程序。
-
-  ```shell
-  yarn format
-  ```
-
-  ```shell
-  yarn style
-  ```
-
-  ```shell
-  yarn lint
-  ```
+欢迎您的贡献！请友善提issue和pr，在提pr时请先运行上述指令审查代码<br />若有本地化需求，欢迎将您的需求发送至shulin3712@163.com，我们会尽快联系您
