@@ -13,10 +13,10 @@ import apis from '../assets/api.json'
 import Events from '../assets/events.json'
 import toolboxConfig from '../assets/toolbox.json'
 import { block_style } from '../blocks/patch'
-import * as zh from '../msg/zh.json'
+import * as zh_CN from '../msg/zh.json'
 import { useStore } from '../store/store'
 
-Blockly.setLocale(zh)
+Blockly.setLocale(zh_CN)
 
 Blockly.Scrollbar.scrollbarThickness = 15
 Blockly.FlyoutButton.BORDER_RADIUS = 4
@@ -45,7 +45,7 @@ for (let i in toolboxConfig.contents) {
         //console.log('Event_' + Events[j].events[k][0].replace(/\./g, '_'))
         toolboxConfig.contents[i].contents.push({
           kind: 'block',
-          type: 'Event_' + Events[j].events[k][0].replace(/\./g, '_'),
+          type: 'Event_' + Events[j].events[k][0].replace(/\./g, '_')
         })
         /*if (Events[j].events[k][2].length > 0) {
           for (let l in Events[j].events[k][2]) {
@@ -119,45 +119,45 @@ onMounted(() => {
 </script>
 
 <style lang="less">
-#app>section {
+#app > section {
   height: 100%;
 
-  >main {
+  > main {
     height: 100%;
 
-    >div.blocklyDiv {
+    > div.blocklyDiv {
       width: 100%;
       height: 100%;
       text-align: left;
 
-      >div.injectionDiv {
-        >svg.blocklySvg {
+      > div.injectionDiv {
+        > svg.blocklySvg {
           background-color: var(--color-bg-1);
 
-          >g.blocklyWorkspace>rect.blocklyMainBackground {
+          > g.blocklyWorkspace > rect.blocklyMainBackground {
             stroke: none;
           }
         }
 
-        >svg.blocklyMainWorkspaceScrollbar {
+        > svg.blocklyMainWorkspaceScrollbar {
           opacity: 0;
           transition: opacity ease 200ms;
 
-          >g>rect.blocklyScrollbarHandle {
+          > g > rect.blocklyScrollbarHandle {
             fill: var(--color-fill-4);
           }
         }
 
-        >svg.blocklyScrollbarHorizontal {
+        > svg.blocklyScrollbarHorizontal {
           margin-top: 1px;
 
-          >g>rect.blocklyScrollbarHandle {
+          > g > rect.blocklyScrollbarHandle {
             height: 9px;
           }
         }
 
-        >svg.blocklyScrollbarVertical {
-          >g>rect.blocklyScrollbarHandle {
+        > svg.blocklyScrollbarVertical {
+          > g > rect.blocklyScrollbarHandle {
             width: 9px;
           }
         }
@@ -165,22 +165,22 @@ onMounted(() => {
     }
   }
 
-  >main:hover {
-    >div.blocklyDiv>div>svg.blocklyMainWorkspaceScrollbar {
+  > main:hover {
+    > div.blocklyDiv > div > svg.blocklyMainWorkspaceScrollbar {
       opacity: 0.8;
     }
   }
 }
 
 div.blocklyWidgetDiv {
-  >div.blocklyMenu {
+  > div.blocklyMenu {
     padding: 4px 0;
     background-color: var(--color-bg-popup);
     border: 1px solid var(--color-fill-3);
     border-radius: var(--border-radius-medium);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-    >div.blocklyMenuItem {
+    > div.blocklyMenuItem {
       color: var(--color-text-1);
       padding: 0 12px;
       font-size: 14px;
@@ -188,39 +188,39 @@ div.blocklyWidgetDiv {
       text-align: left;
       background-color: transparent;
 
-      >div.blocklyMenuItemContent {
+      > div.blocklyMenuItemContent {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
     }
 
-    >div.blocklyMenuItem.blocklyMenuItemDisabled {
+    > div.blocklyMenuItem.blocklyMenuItemDisabled {
       color: var(--color-text-4);
     }
 
-    >div.blocklyMenuItem:not(.blocklyMenuItemDisabled):hover {
+    > div.blocklyMenuItem:not(.blocklyMenuItemDisabled):hover {
       background: var(--color-fill-2);
     }
   }
 
-  >div.blocklyMenu.blocklyFocused {
+  > div.blocklyMenu.blocklyFocused {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 }
 
 body {
-  >div.blocklyDropDownDiv {
+  > div.blocklyDropDownDiv {
     border: 1px solid var(--color-fill-3);
     border-radius: var(--border-radius-medium);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-    >div.blocklyDropDownContent>div.blocklyMenu>div.blocklyMenuItem {
+    > div.blocklyDropDownContent > div.blocklyMenu > div.blocklyMenuItem {
       border-radius: var(--border-radius-medium);
     }
   }
 
-  >div.blocklyDropDownDiv.blocklyFocused {
+  > div.blocklyDropDownDiv.blocklyFocused {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 }
