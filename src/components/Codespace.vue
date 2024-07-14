@@ -15,21 +15,18 @@
 import { IconClose } from '@arco-iconbox/vue-boxy'
 import Blockly from 'blockly'
 import { luaGenerator } from 'blockly/lua'
+import LZString from 'lz-string'
 import { onMounted, ref } from 'vue'
 
 import { useStore } from '../store/store'
 
-const defaultContext = '未检测到积木块，尝试在编辑区拼几块积木吧'
+const defaultContext = '未检测到积木块，尝试在工作区拼几块积木吧'
 const code = ref(defaultContext)
 const store = useStore()
 
 onMounted(() => {
   store.workspaceSvg.addChangeListener(() => {
     code.value = luaGenerator.workspaceToCode(store.workspaceSvg) || defaultContext
-    sessionStorage.setItem(
-      'now',
-      JSON.stringify(Blockly.serialization.workspaces.save(store.workspaceSvg))
-    )
     localStorage.setItem(
       'now',
       JSON.stringify(Blockly.serialization.workspaces.save(store.workspaceSvg))

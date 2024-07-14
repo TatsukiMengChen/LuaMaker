@@ -43,6 +43,10 @@ function handleIconClick() {
 }
 
 function handleSaveClick() {
+  if (store.workspaceSvg.getAllBlocks().length === 0) {
+    Notification.warning('工作区空空如也，没有工程进行中哦，尝试拼几块积木吧！')
+    return
+  }
   try {
     const json = Blockly.serialization.workspaces.save(store.workspaceSvg)
     const text = LZString.compressToUTF16(JSON.stringify(json))
@@ -50,7 +54,7 @@ function handleSaveClick() {
     const url = URL.createObjectURL(blob)
     const anchor = document.createElement('a')
     anchor.href = url
-    anchor.download = localStorage.getItem('name')+'.luamaker'
+    anchor.download = localStorage.getItem('name') + '.luamaker'
     anchor.click()
   } catch (err) {
     Notification.error('导出工程文件时发生错误：' + err)
@@ -60,6 +64,10 @@ function handleSaveClick() {
 }
 
 function handleOutputClick() {
+  if (store.workspaceSvg.getAllBlocks().length === 0) {
+    Notification.warning('工作区空空如也，没有东西可以导出为Lua，尝试拼几块积木吧！')
+    return
+  }
   try {
     const json = Blockly.serialization.workspaces.save(store.workspaceSvg)
     const text = JSON.stringify(json)
@@ -67,7 +75,7 @@ function handleOutputClick() {
     const url = URL.createObjectURL(blob)
     const anchor = document.createElement('a')
     anchor.href = url
-    anchor.download = localStorage.getItem('name')+'.lua'
+    anchor.download = localStorage.getItem('name') + '.lua'
     anchor.click()
   } catch (err) {
     Notification.error('导出Lua文件时发生错误：' + err)
@@ -90,6 +98,7 @@ function handleOpenClick() {
         const json = JSON.parse(LZString.decompressFromUTF16(this.result))
         //const json = JSON.parse(this.result)
         Blockly.serialization.workspaces.load(json, store.workspaceSvg)
+        localStorage.setItem('now', JSON.stringify(json))
       })
       reader.readAsText(file)
     })

@@ -3,7 +3,7 @@
     <a-space>
       <a-tooltip content="重命名" position="top" mini>
         <a-button type="text" @click="handleRename" aria-label="重命名">
-          当前项目：<span id="projectname">{{name}}</span>
+          当前项目：<span id="projectname">{{ name }}</span>
         </a-button>
       </a-tooltip>
     </a-space>
@@ -50,9 +50,9 @@
 </template>
 
 <script setup>
-import { Input,Modal } from '@arco-design/web-vue'
+import { Input, Modal } from '@arco-design/web-vue'
 import { IconBigger, IconCleanup, IconCode, IconSmaller } from '@arco-iconbox/vue-boxy'
-import { h,onMounted, ref } from 'vue'
+import { h, onMounted, ref } from 'vue'
 
 import { useStore } from '../store/store'
 
@@ -72,16 +72,16 @@ function handleRename() {
         maxlength: '{length:10,error:true}',
         allowclear: true,
         showwordlimit: true,
-        onInput: function (value,ev) {
-          sessionStorage.setItem('input_cache',value)
-        },
+        onInput: function (value, ev) {
+          sessionStorage.setItem('input_cache', value)
+        }
       }),
     okText: '确认',
     cancelText: '取消',
     onOk: function () {
       name.value.innerHTML = sessionStorage.getItem('input_cache')
-      localStorage.setItem('name',sessionStorage.getItem('input_cache'))
-    },
+      localStorage.setItem('name', sessionStorage.getItem('input_cache'))
+    }
   })
 }
 

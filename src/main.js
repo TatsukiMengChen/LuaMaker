@@ -17,8 +17,9 @@ const app = createApp(App)
 const pinia = createPinia()
 
 sessionStorage.setItem('input_cache', 'cache')
-if (!localStorage.getItem('name')) { localStorage.setItem('name', '新的项目') }
-
+if (!localStorage.getItem('name')) {
+  localStorage.setItem('name', '新的项目')
+}
 
 app.use(highlight)
 app.use(pinia)

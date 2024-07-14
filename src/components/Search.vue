@@ -3,12 +3,12 @@
     <a-space :style="{ display: visible ? 'block' : 'none' }">
       <a-input placeholder="搜索作品中的积木" @input="handleInput" @press-enter="handlePressEnter">
         <template #append>
-          <a-button type="text" @click="handleUpClick" aria-label="整理">
+          <a-button type="text" @click="handleUpClick" aria-label="上一块">
             <template #icon>
               <IconUp />
             </template>
           </a-button>
-          <a-button type="text" @click="handleDownClick" aria-label="整理">
+          <a-button type="text" @click="handleDownClick" aria-label="下一块">
             <template #icon>
               <IconDown />
             </template>

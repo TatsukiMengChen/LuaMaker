@@ -1,4 +1,5 @@
 import Blockly from 'blockly'
+
 import apis from '../assets/api.json'
 import Events from '../assets/events.json'
 
@@ -531,7 +532,7 @@ Blockly.defineBlocksWithJsonArray([
   },
   {
     type: 'makefunction',
-    message0: '触发器 %1 事件 %2 动作 %3',
+    message0: '触发器 %1 事件 %2 执行 %3',
     args0: [
       {
         type: 'input_dummy'
